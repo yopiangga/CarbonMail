@@ -1,3 +1,4 @@
+import 'package:carbonmail/HomePage.dart';
 import 'package:carbonmail/StartPage.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xff4265D6),
         primarySwatch: Colors.blue,
       ),
-      home: StartPage(),
+      home: HomePage(),
     );
   }
 }
