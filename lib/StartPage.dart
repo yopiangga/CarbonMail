@@ -1,3 +1,4 @@
+import 'package:carbonmail/HomePage.dart';
 import 'package:flutter/material.dart';
 
 class StartPage extends StatelessWidget {
@@ -19,10 +20,22 @@ class StartPage extends StatelessWidget {
               )),
           Positioned(
               top: MediaQuery.of(context).size.height * 1 / 6,
-              child: Image.asset("assets/images/Horizon.png")),
+              left: 0,
+              right: 0,
+              child: Container(
+                  child: Image.asset(
+                "assets/images/Horizon.png",
+                fit: BoxFit.cover,
+              ))),
           Positioned(
+              left: 0,
+              right: 0,
               top: MediaQuery.of(context).size.height / 2 + 50,
-              child: Image.asset("assets/images/Background.png")),
+              child: Container(
+                  child: Image.asset(
+                "assets/images/Background.png",
+                fit: BoxFit.cover,
+              ))),
           Positioned(
             right: -50,
             top: MediaQuery.of(context).size.height * 2 / 5 - 25,
@@ -71,38 +84,46 @@ class StartPage extends StatelessWidget {
               )),
           Positioned(
               bottom: 50,
-              child: Container(
-                width: MediaQuery.of(context).size.width * 1 / 2,
-                height: 56,
-                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0xff293855).withOpacity(0.1),
-                      spreadRadius: 4,
-                      blurRadius: 12,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Get Started",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Color(0xff293855)),
-                    ),
-                    Icon(
-                      Icons.keyboard_arrow_right,
-                      color: Color(0xff293855),
-                      size: 20,
-                    )
-                  ],
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context)
+                      .pushReplacement(MaterialPageRoute(builder: (context) {
+                    return HomePage();
+                  }));
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 1 / 2,
+                  height: 56,
+                  padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0xff293855).withOpacity(0.1),
+                        spreadRadius: 4,
+                        blurRadius: 12,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Get Started",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                            color: Color(0xff293855)),
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right,
+                        color: Color(0xff293855),
+                        size: 20,
+                      )
+                    ],
+                  ),
                 ),
               ))
         ],
